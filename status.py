@@ -68,6 +68,11 @@ def get_scan(token,id):
     x = json.loads(r.text)
     if output == "status":
         print(x['status'])
+    elif output == "malware" and "malware" in x['findings']:
+        if(x['findings']['malware'] > 0):
+            print('malware-found')
+        else:
+            print('no-malware')
     else:
         print(r.text)
     

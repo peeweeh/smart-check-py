@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import sys, getopt
+import sys, getopt, os
 import requests
 import urllib3
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -70,8 +70,8 @@ def get_scan(token,id):
         print(x['status'])
     elif output == "malware" and "malware" in x['findings']:
         if(x['findings']['malware'] > 0):
-            print('malware-found')
-            sys.stderr.write('malware-found')
+            print('malware_found')
+            sys.exit(os.EX_SOFTWARE)
         else:
             print('no-malware')
     else:

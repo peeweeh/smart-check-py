@@ -71,6 +71,7 @@ def get_scan(token,id):
     elif output == "malware" and "malware" in x['findings']:
         if(x['findings']['malware'] > 0):
             print('malware-found')
+            sys.stderr.write('malware-found')
         else:
             print('no-malware')
     else:
